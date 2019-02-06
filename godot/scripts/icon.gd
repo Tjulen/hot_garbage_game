@@ -9,10 +9,23 @@ func _ready():
 	# Initialization here
 	pass
 
+var move_vec = Vector2(0, 0)
 
-var is_pressed = false
+const move_amount = 10
 
 func _process(delta):
 	# Called every frame. Delta is time since last frame.
 	# Update game logic here.
+	if Input.is_key_pressed(KEY_D):
+		move_vec.x = move_amount
+	elif Input.is_key_pressed(KEY_A):
+		move_vec.x = -move_amount
+	if Input.is_key_pressed(KEY_W):
+		move_vec.y = -move_amount
+	elif Input.is_key_pressed(KEY_S):
+		move_vec.y = move_amount
+	
+	translate(move_vec)
+	move_vec.x = 0
+	move_vec.y = 0
 	pass
